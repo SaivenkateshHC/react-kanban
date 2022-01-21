@@ -6,7 +6,7 @@ describe('<DefaultCard />', () => {
 
   const onCardRemove = jest.fn()
 
-  const card = { id: 1, title: 'Card title', description: 'Description' }
+  const card = { id: 1, title: 'Card title', description: 'Description',priority:1,assignee:"none" }
 
   function mount(props) {
     subject = render(
@@ -28,6 +28,8 @@ describe('<DefaultCard />', () => {
     const subject = mount()
     expect(subject.queryByText('Card title')).toBeVisible()
     expect(subject.queryByText('Description')).toBeVisible()
+    expect(subject.queryByText('priority')).toBeVisible()
+    expect(subject.queryByText('assignee')).toBeVisible()
   })
 
   describe('about the style on dragging', () => {
